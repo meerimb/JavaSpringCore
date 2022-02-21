@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="application.properties"/>
+
+<bean id="carId"
+      class="peaksoft.model.Car">
+    <constructor-arg index="0" value="${car.mark}"/>
+    <constructor-arg index="1" value="${car.wheel}"/>
+</bean>
+
+    <bean id="motoId"
+          class="peaksoft.model.Car">
+        <constructor-arg index="0" value="${motorcyle.mark}"/>
+        <constructor-arg index="1" value="${motorcycle.wheel}"/>
+    </bean>
+
+    <bean id="employeeId"
+      class="peaksoft.model.Employee">
+<!--    <constructor-arg value="Ulukmyrza"/>-->
+    <property name="name" value="${employee.name}"/>
+        <property name="car" ref="carId"/>
+</bean>
+
+
+
+</beans>
